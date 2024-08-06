@@ -22,3 +22,8 @@ output "fqdn" {
   description = "The FQDN of the AKS cluster"
   value       = azurerm_kubernetes_cluster.aks.fqdn
 }
+
+output "kubelet_identity_object_id" {
+  description = "The Kubelet identity object of the AKS cluster"
+  value = azurerm_kubernetes_cluster.aks.kubelet_identity[0].object_id
+}
