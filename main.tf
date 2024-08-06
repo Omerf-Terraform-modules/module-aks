@@ -5,6 +5,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
   private_cluster_enabled    = true
   dns_prefix_private_cluster = var.dns_prefix_private_cluster
   private_dns_zone_id        = var.private_dns_zone_id
+  sku_tier                   = "Standard"
 
   default_node_pool {
     name            = var.default_node_pool.name
@@ -23,7 +24,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
     network_plugin    = var.network_plugin
     load_balancer_sku = var.load_balancer_sku
 
-    service_cidr = "172.22.0.0/16"
+    service_cidr   = "172.22.0.0/16"
     dns_service_ip = "172.22.0.10"
   }
 
